@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ashen Disanayaka — Product & AI Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-figma" viewBox="0 0 24 24">
+    <path fill="#0acf83" d="M8 24c2.208 0 4-1.792 4-4v-4H8c-2.208 0-4 1.792-4 4s1.792 4 4 4z"/>
+    <path fill="#a259ff" d="M4 12c0-2.208 1.792-4 4-4h4v8H8c-2.208 0-4-1.792-4-4z"/>
+    <path fill="#f24e1e" d="M4 4c0-2.208 1.792-4 4-4h4v8H8C5.792 8 4 6.208 4 4z"/>
+    <path fill="#ff7262" d="M12 0h4c2.208 0 4 1.792 4 4s-1.792 4-4 4h-4V0z"/>
+    <path fill="#1abcfe" d="M20 12c0 2.208-1.792 4-4 4s-4-1.792-4-4 1.792-4 4-4 4 1.792 4 4z"/>
+  </symbol>
+  <symbol id="i-claude" viewBox="0 0 24 24">
+    <g fill="none" stroke="#d97757" stroke-width="2.3" stroke-linecap="round"><path d="M12 12V2" transform="rotate(0 12 12)"/><path d="M12 12V4.6" transform="rotate(30 12 12)"/><path d="M12 12V2" transform="rotate(60 12 12)"/><path d="M12 12V4.6" transform="rotate(90 12 12)"/><path d="M12 12V2" transform="rotate(120 12 12)"/><path d="M12 12V4.6" transform="rotate(150 12 12)"/><path d="M12 12V2" transform="rotate(180 12 12)"/><path d="M12 12V4.6" transform="rotate(210 12 12)"/><path d="M12 12V2" transform="rotate(240 12 12)"/><path d="M12 12V4.6" transform="rotate(270 12 12)"/><path d="M12 12V2" transform="rotate(300 12 12)"/><path d="M12 12V4.6" transform="rotate(330 12 12)"/></g>
+  </symbol>
+  <symbol id="i-cursor" viewBox="0 0 24 24">
+    <path fill="#ffffff" d="M12 1.5l9.1 5.25L12 12 2.9 6.75z"/>
+    <path fill="#b9b9cc" d="M2.9 6.75L12 12v10.5L2.9 17.25z"/>
+    <path fill="#8a8aa0" d="M21.1 6.75L12 12v10.5l9.1-5.25z"/>
+  </symbol>
+  <symbol id="i-mobile" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+  <symbol id="i-landing" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></symbol>
+  <symbol id="i-dash" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="10" rx="2"/><rect x="13" y="3" width="8" height="6" rx="2"/><rect x="13" y="11" width="8" height="10" rx="2"/><rect x="3" y="15" width="8" height="6" rx="2"/></symbol>
+</svg>
+
+<div class="blobs">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+</div>
+
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<nav>
+  <div class="logo">Ashen<span>.</span></div>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="tag"><span class="dot"></span> Available for freelance & full-time</div>
+    <h1>
+      <span class="name-title">Ashen Disanayaka</span>
+      <div class="typewriter-container">
+        <span class="typewriter-text" id="typewriter"></span><span class="cursor-caret"></span>
+      </div>
+    </h1>
+    <p>I design intuitive, human-centred digital products — combining AI workflows, design systems, and seamless motion interactions that bring modern applications to life.</p>
+    <div class="btns">
+      <a href="#work" class="btn btn-main hoverable">View my work</a>
+      <a href="#contact" class="btn btn-ghost hoverable">Let's talk</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="profile-rect-frame" id="heroCard">
+      <div class="rect-border-glow"></div>
+      <div class="rect-ambient-pulse"></div>
+      
+      <div class="image-wrapper">
+        <div class="inner-overlay-glow"></div>
+        <div class="corner-accent top-left"></div>
+        <div class="corner-accent top-right"></div>
+        <div class="corner-accent bottom-right"></div>
+        <img src="assets/profile.png" id="profileImg" alt="Ashen Disanayaka Profile Image" height="200px" width="150px">
+      </div>
+      
+      <!-- Floating 3D Skill Badges -->
+      <div class="badge-3d badge-1">
+        <span class="icon">✨</span> UI/UX & AI
+      </div>
+      <div class="badge-3d badge-2">
+        <svg class="mini-logo" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-figma"/></svg> Figma Master
+      </div>
+      <div class="badge-3d badge-3">
+        <span class="icon">⚡</span> Motion & Code
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee">
+  <div class="track">
+    <span>AI Prompting</span><span>UI/UX Design</span><span>Design Systems</span><span>Wireframing</span><span>Prototyping</span><span>Figma</span><span>Motion Design</span><span>Usability Testing</span>
+    <span>AI Prompting</span><span>UI/UX Design</span><span>Design Systems</span><span>Wireframing</span><span>Prototyping</span><span>Figma</span><span>Motion Design</span><span>Usability Testing</span>
+  </div>
+</div>
+
+<section id="tools" class="tools">
+  <h2 class="sec-title reveal">Tools I design with</h2>
+  <p class="sec-sub reveal">The stack behind every screen, from first sketch to shipped code.</p>
+  <div class="tool-grid">
+    <div class="tool reveal hoverable" style="--tc:#a259ff">
+      <div class="tool-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-figma"/></svg></div>
+      <div><h3>Figma</h3><p>Interfaces, components and prototypes</p></div>
+    </div>
+    <div class="tool reveal hoverable" style="--tc:#d97757">
+      <div class="tool-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-claude"/></svg></div>
+      <div><h3>Claude</h3><p>Research, UX writing and AI workflows</p></div>
+    </div>
+    <div class="tool reveal hoverable" style="--tc:#00d4ff">
+      <div class="tool-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cursor"/></svg></div>
+      <div><h3>Cursor</h3><p>Turning designs into working front-end code</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <h2 class="sec-title reveal">My Work</h2>
+  <p class="sec-sub reveal">Mobile apps, landing pages and dashboards I've researched, designed and published on Behance.</p>
+
+  <div class="filters reveal">
+    <button class="active" data-filter="all">All work</button>
+    <button data-filter="mobile">Mobile apps</button>
+    <button data-filter="landing">Landing pages</button>
+    <button data-filter="dashboard">Dashboards</button>
+  </div>
+
+  <div id="work-groups"></div>
+</section>
+
+<section>
+  <div class="stats">
+    <div class="stat reveal"><h2 data-count="25">0</h2><p>Projects Completed</p></div>
+    <div class="stat reveal"><h2 data-count="15">0</h2><p>Happy Clients</p></div>
+    <div class="stat reveal"><h2 data-count="3">0</h2><p>Years Experience</p></div>
+    <div class="stat reveal"><h2 data-count="100">0</h2><p>Screens Designed+</p></div>
+  </div>
+</section>
+
+<section id="process">
+  <h2 class="sec-title reveal">My Process</h2>
+  <p class="sec-sub reveal">How I turn ideas into meaningful experiences.</p>
+  <div class="steps">
+    <div class="step reveal"><b>01</b><h3>Discover</h3><p>User interviews, competitor analysis and defining the real problem.</p></div>
+    <div class="step reveal"><b>02</b><h3>Define</h3><p>Personas, user journeys and information architecture.</p></div>
+    <div class="step reveal"><b>03</b><h3>Design</h3><p>Wireframes, high-fidelity UI and scalable design systems.</p></div>
+    <div class="step reveal"><b>04</b><h3>Test & Iterate</h3><p>Interactive prototypes, usability testing and refinement.</p></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2 class="reveal">Let's build<br><span class="typewriter-text" style="animation:shift 6s linear infinite">something great.</span></h2>
+  
+  <div style="display:flex; flex-direction:column; align-items:center; gap:16px; margin-top:36px;" class="reveal">
+    <a href="mailto:disanayakaaashen@gmail.com" class="mail hoverable">disanayakaaashen@gmail.com</a>
+    <a href="https://wa.me/94772818913" target="_blank" class="hoverable" style="display:inline-flex; align-items:center; gap:10px; font-size:1.2rem; background:rgba(43,255,136,0.1); border:1px solid rgba(43,255,136,0.3); padding:10px 24px; border-radius:50px; color:#2bff88; text-decoration:none; transition:0.3s; margin-top:8px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      +94 77 281 8913 (WhatsApp)
+    </a>
+  </div>
+
+  <div class="socials reveal">
+    <a href="https://www.behance.net/ashenui" target="_blank" class="hoverable">Behance</a>
+    <a href="#" class="hoverable">Dribbble</a>
+    <a href="https://www.linkedin.com/in/ashen-disanayaka-14b0b31b7/?isSelfProfile=true" class="hoverable">LinkedIn</a>
+    <a href="https://www.facebook.com/ashen.dissanayaka.332" class="hoverable">FaceBook</a>
+  </div>
+</section>
+
+<footer>© 2026 Ashen Disanayaka · Designed with ♥ in Sri Lanka</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
