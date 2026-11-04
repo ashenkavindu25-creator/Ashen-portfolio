@@ -3,10 +3,6 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <title>Ashen Disanayaka — Product & AI Designer</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -51,49 +47,61 @@
     <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <div class="nav-social">
+    <a href="https://www.behance.net/ashenui" target="_blank" rel="noopener" class="hoverable" aria-label="Behance">Bē</a>
+    <a href="https://www.linkedin.com/in/ashen-disanayaka-14b0b31b7/" target="_blank" rel="noopener" class="hoverable" aria-label="LinkedIn">in</a>
+    <a href="https://www.facebook.com/ashen.dissanayaka.332" target="_blank" rel="noopener" class="hoverable" aria-label="Facebook">f</a>
+  </div>
 </nav>
 
-<header class="hero">
-  <div class="hero-content">
-    <div class="tag"><span class="dot"></span> Available for freelance & full-time</div>
-    <h1>
-      <span class="name-title">Ashen Disanayaka</span>
-      <div class="typewriter-container">
-        <span class="typewriter-text" id="typewriter"></span><span class="cursor-caret"></span>
-      </div>
-    </h1>
-    <p>I design intuitive, human-centred digital products — combining AI workflows, design systems, and seamless motion interactions that bring modern applications to life.</p>
-    <div class="btns">
-      <a href="#work" class="btn btn-main hoverable">View my work</a>
-      <a href="#contact" class="btn btn-ghost hoverable">Let's talk</a>
+<header class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="photo-panel">
+      <span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span>
+      <span class="ring r1"></span><span class="ring r2"></span>
     </div>
   </div>
 
-  <div class="hero-visual">
-    <div class="profile-rect-frame" id="heroCard">
-      <div class="rect-border-glow"></div>
-      <div class="rect-ambient-pulse"></div>
-      
-      <div class="image-wrapper">
-        <div class="inner-overlay-glow"></div>
-        <div class="corner-accent top-left"></div>
-        <div class="corner-accent top-right"></div>
-        <div class="corner-accent bottom-right"></div>
-        <img src="assets/profile.png" id="profileImg" alt="Ashen Disanayaka Profile Image" height="200px" width="150px">
-      </div>
-      
-      <!-- Floating 3D Skill Badges -->
-      <div class="badge-3d badge-1">
-        <span class="icon">✨</span> UI/UX & AI
-      </div>
-      <div class="badge-3d badge-2">
-        <svg class="mini-logo" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-figma"/></svg> Figma Master
-      </div>
-      <div class="badge-3d badge-3">
-        <span class="icon">⚡</span> Motion & Code
+  <div class="hero-content">
+    <div class="tag"><span class="dot"></span> Available for freelance & full-time</div>
+    <h1>Meet <b>Ashen Disanayaka</b></h1>
+    <div class="role-line">
+      <span class="typewriter-text" id="typewriter"></span><span class="cursor-caret"></span>
+    </div>
+    <p>I design intuitive, human-centred digital products — combining AI workflows, design systems, and seamless motion interactions that bring modern applications to life.</p>
+    <div class="btns">
+      <a href="mailto:disanayakaaashen@gmail.com" id="hireBtn" class="btn btn-hire hoverable">Hire now</a>
+      <a href="#work" class="btn btn-ghost hoverable">View portfolio
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+    </div>
+
+    <div class="expertise">
+      <h4>Expertise in</h4>
+      <div class="exp-logos">
+        <span class="exp" style="--tc:#a259ff" title="Figma"><svg viewBox="0 0 24 24" role="img" aria-label="Figma"><use href="#i-figma"/></svg></span>
+        <span class="exp" style="--tc:#d97757" title="Claude"><svg viewBox="0 0 24 24" role="img" aria-label="Claude"><use href="#i-claude"/></svg></span>
+        <span class="exp" style="--tc:#ffffff" title="Cursor"><svg viewBox="0 0 24 24" role="img" aria-label="Cursor"><use href="#i-cursor"/></svg></span>
       </div>
     </div>
   </div>
+
+  <div class="hero-photo">
+    <img src="assets/profile.png" id="profileImg" alt="Ashen Disanayaka" onerror="this.style.display='none'">
+  </div>
+
+  <a href="#work" class="scroll-hint hoverable">
+    Scroll down to know more
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l6 6 6-6M6 13l6 6 6-6"/></svg>
+  </a>
+
+  <a href="#contact" class="contact-badge hoverable" aria-label="Contact now">
+    <svg class="badge-text" viewBox="0 0 120 120" aria-hidden="true">
+      <defs><path id="badgeCircle" d="M60 60 m-46 0 a46 46 0 1 1 92 0 a46 46 0 1 1 -92 0"/></defs>
+      <text><textPath href="#badgeCircle" textLength="286" lengthAdjust="spacing">CONTACT NOW • CONTACT NOW • </textPath></text>
+    </svg>
+    <span class="badge-core">↗</span>
+  </a>
 </header>
 
 <div class="marquee">
@@ -176,6 +184,53 @@
 </section>
 
 <footer>© 2026 Ashen Disanayaka · Designed with ♥ in Sri Lanka</footer>
+
+<dialog id="hireDialog" class="hire-dialog" aria-labelledby="hireTitle">
+  <div class="hire-card">
+    <button type="button" class="hire-close" id="hireClose" aria-label="Close form">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <form id="hireForm" class="hire-form" novalidate>
+      <h2 id="hireTitle">Tell me about your project</h2>
+      <p class="hire-sub">Share what you're building and I'll reply by email.</p>
+
+      <div class="field-row">
+        <label class="field"><span>Your name</span>
+          <input type="text" name="name" autocomplete="name" required maxlength="80" placeholder="Jane Perera">
+        </label>
+        <label class="field"><span>Your email</span>
+          <input type="email" name="email" autocomplete="email" required maxlength="120" placeholder="jane@company.com">
+        </label>
+      </div>
+
+      <label class="field"><span>What do you need?</span>
+        <select name="type" required>
+          <option value="Mobile app design">Mobile app design</option>
+          <option value="Landing page design">Landing page design</option>
+          <option value="Dashboard design">Dashboard design</option>
+          <option value="Something else">Something else</option>
+        </select>
+      </label>
+
+      <label class="field"><span>Project description</span>
+        <textarea name="message" rows="5" required maxlength="1500" placeholder="What are you building, who is it for, and when do you need it?"></textarea>
+      </label>
+
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+
+      <p class="form-error" id="hireError" role="alert" hidden></p>
+      <button type="submit" class="btn btn-hire hire-submit" id="hireSubmit">Send project details</button>
+    </form>
+
+    <div class="hire-done" id="hireDone" hidden aria-live="polite">
+      <div class="done-icon" aria-hidden="true">✓</div>
+      <h2 id="doneTitle">Message sent</h2>
+      <p id="doneText"></p>
+      <button type="button" class="btn btn-ghost hire-again" id="hireDoneClose">Close</button>
+    </div>
+  </div>
+</dialog>
 
 <script src="js/script.js"></script>
 </body>

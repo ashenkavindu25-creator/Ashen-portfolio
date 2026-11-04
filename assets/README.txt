@@ -1,6 +1,6 @@
 Put your images in this folder:
 
-profile.png         hero profile photo
+profile.png         hero photo - use a PNG with a transparent background (cut-out) so you sit on the gradient panel
 fanbudget.jpg       FanBudget App
 zulu-courier.jpg    Zulu Courier Dashboard
 toner-connect.jpg   Toner Connect Platform

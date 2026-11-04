@@ -44,22 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
   typeEffect();
 });
 
-/* Interactive 3D Hero Profile Card Parallax Tilt */
-const heroCard = document.getElementById('heroCard');
-if (heroCard) {
-  heroCard.addEventListener('mousemove', (e) => {
-    const rect = heroCard.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    
-    heroCard.style.transform = `perspective(1000px) rotateY(${x * 20}deg) rotateX(${-y * 20}deg) translateY(-8px)`;
-  });
-
-  heroCard.addEventListener('mouseleave', () => {
-    heroCard.style.transform = '';
-  });
-}
-
 /* Projects data (local images from the assets folder, links to Behance) */
 
 const projects = [
@@ -232,3 +216,96 @@ document.querySelectorAll('.filters button').forEach(b => b.addEventListener('cl
   document.querySelectorAll('.work-group').forEach(g =>
     g.classList.toggle('hide', b.dataset.filter !== 'all' && g.dataset.cat !== b.dataset.filter));
 }));
+
+/* ===== Hire form: opens from the "Hire now" button ===== */
+const CONTACT_EMAIL = 'disanayakaaashen@gmail.com';
+/* Optional: paste your Formspree form URL here (https://formspree.io/f/xxxxxxxx)
+   to send the message by email straight from the page.
+   Leave it empty and the form opens the visitor's email app with the message ready. */
+const FORM_ENDPOINT = '';
+
+const hireBtn = document.getElementById('hireBtn');
+const hireDialog = document.getElementById('hireDialog');
+const hireForm = document.getElementById('hireForm');
+const hireDone = document.getElementById('hireDone');
+const hireError = document.getElementById('hireError');
+const hireSubmit = document.getElementById('hireSubmit');
+
+function openHire() {
+  hireForm.hidden = false;
+  hireDone.hidden = true;
+  hireError.hidden = true;
+  hireDialog.showModal();
+  document.body.classList.add('modal-open');
+  hireForm.elements.name.focus();
+}
+function closeHire() { hireDialog.close(); }
+
+hireDialog.addEventListener('close', () => {
+  document.body.classList.remove('modal-open');
+  ring.classList.remove('hover');
+});
+/* click on the dark backdrop closes the form */
+hireDialog.addEventListener('click', e => { if (e.target === hireDialog) closeHire(); });
+document.getElementById('hireClose').addEventListener('click', closeHire);
+document.getElementById('hireDoneClose').addEventListener('click', closeHire);
+
+if (hireBtn && typeof hireDialog.showModal === 'function') {
+  hireBtn.addEventListener('click', e => { e.preventDefault(); openHire(); });
+}
+
+function showDone(title, textNodes) {
+  document.getElementById('doneTitle').textContent = title;
+  const p = document.getElementById('doneText');
+  p.replaceChildren(...textNodes);
+  hireForm.hidden = true;
+  hireDone.hidden = false;
+  hireForm.reset();
+}
+function emailLink() {
+  const a = document.createElement('a');
+  a.href = 'mailto:' + CONTACT_EMAIL;
+  a.textContent = CONTACT_EMAIL;
+  return a;
+}
+
+hireForm.addEventListener('submit', async e => {
+  e.preventDefault();
+  if (!hireForm.reportValidity()) return;
+  if (hireForm.elements._gotcha.value) return; /* spam trap */
+
+  const f = hireForm.elements;
+  const data = { name: f.name.value.trim(), email: f.email.value.trim(), type: f.type.value, message: f.message.value.trim() };
+  const subject = `Project enquiry: ${data.type} from ${data.name}`;
+  hireError.hidden = true;
+
+  if (FORM_ENDPOINT) {
+    hireSubmit.disabled = true;
+    hireSubmit.textContent = 'Sending...';
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: data.name, email: data.email, projectType: data.type, message: data.message, _subject: subject })
+      });
+      if (!res.ok) throw new Error('send failed');
+      showDone('Message sent', [document.createTextNode(`Thanks, ${data.name}. I'll reply to ${data.email} soon.`)]);
+    } catch (err) {
+      hireError.replaceChildren(document.createTextNode("The message didn't send. Try again, or email me at "), emailLink(), document.createTextNode('.'));
+      hireError.hidden = false;
+    } finally {
+      hireSubmit.disabled = false;
+      hireSubmit.textContent = 'Send project details';
+    }
+    return;
+  }
+
+  /* No endpoint set: open the visitor's email app with everything filled in */
+  const body = `Name: ${data.name}\nEmail: ${data.email}\nProject type: ${data.type}\n\nProject description:\n${data.message}`;
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  showDone('Your email is ready', [
+    document.createTextNode('Your email app should be open with the project details filled in. Press send there to finish. Nothing opened? Email me directly at '),
+    emailLink(),
+    document.createTextNode('.')
+  ]);
+});

@@ -11,6 +11,11 @@ Personal portfolio website with typewriter hero, 3D tilt cards, glassmorphism UI
 ## Add or move a project
 Edit the `projects` array in `js/script.js`. Set `cat` to `mobile`, `landing` or `dashboard`, and give each project an `image` path and two gradient `colors`.
 
+## Hire form
+The "Hire now" button opens a project form (name, email, project type, description).
+- By default, sending opens the visitor's email app with everything filled in, addressed to the email in `CONTACT_EMAIL` (`js/script.js`).
+- To send straight from the page instead, create a free form at formspree.io and paste its URL into `FORM_ENDPOINT` in `js/script.js`. Submissions then arrive in your inbox with no email app needed.
+
 ## Run locally
 Open `index.html` in any modern browser.
 
