@@ -309,3 +309,100 @@ hireForm.addEventListener('submit', async e => {
     document.createTextNode('.')
   ]);
 });
+
+/* ===== Journey timeline: work + education, newest first =====
+   Add or edit entries here. kind: 'work' or 'edu'. Optional "logo" (image path) replaces the letter tile. */
+const journey = [
+  {
+    kind: 'work',
+    org: 'Efito Solutions (Pvt) Ltd',
+    meta: 'Full-time · 3 yrs 10 mos',
+    logo: '',
+    roles: [
+      { title: 'UI/UX Engineer', period: 'Feb 2023 - Present', duration: '3 yrs 10 mos', current: true,
+        location: 'Homagama, Western Province, Sri Lanka · On-site',
+        skills: ['User Experience (UX)', 'Web Interface Design'], more: '+1 skill' },
+      { title: 'Associate UI/UX Designer', period: 'Feb 2024 - Jul 2026', duration: '2 yrs 6 mos' },
+      { title: 'Trainee UI / UX Designer', period: 'Feb 2023 - Feb 2024', duration: '1 yr 1 mo',
+        location: 'Moratuwa, Western Province, Sri Lanka',
+        skills: ['HTML5', 'Search Engine Optimization (SEO)'], more: '+6 skills' }
+    ]
+  },
+  {
+    kind: 'edu',
+    org: 'Institute of Technology, University of Moratuwa',
+    meta: 'Education',
+    logo: '',
+    roles: [
+      { title: 'National Diploma in Technology (NDT) - Information Technology' }
+    ]
+  }
+];
+
+const pinIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
+const capIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5"/></svg>';
+
+const logoHTML = g => g.logo
+  ? `<div class="org-logo"><img src="${g.logo}" alt="${g.org}" onerror="this.parentElement.textContent='${g.org[0]}'"></div>`
+  : `<div class="org-logo ${g.kind}">${g.kind === 'edu' ? capIcon : g.org[0]}</div>`;
+
+const roleHTML = (r, g) => `
+  <div class="tl-item${r.current ? ' current' : ''}">
+    <span class="tl-node"></span>
+    <div class="tl-card">
+      <div class="tl-top">
+        <div>
+          <h4>${r.title}</h4>
+          ${r.period ? `<p class="tl-date">${r.period}</p>` : ''}
+        </div>
+        <div class="tl-tags">
+          ${r.current ? '<span class="tl-badge"><i></i>Current</span>' : ''}
+          ${r.duration ? `<span class="tl-dur">${r.duration}</span>` : ''}
+          ${g.kind === 'edu' ? '<span class="tl-edu-tag">Education</span>' : ''}
+        </div>
+      </div>
+      ${r.location ? `<p class="tl-loc">${pinIcon}${r.location}</p>` : ''}
+      ${r.skills ? `<div class="tl-skills">${r.skills.map(s => `<span>${s}</span>`).join('')}${r.more ? `<span class="more">${r.more}</span>` : ''}</div>` : ''}
+    </div>
+  </div>`;
+
+document.getElementById('tlGroups').innerHTML = journey.map(g => `
+  <div class="tl-group">
+    <div class="tl-item tl-org">
+      ${logoHTML(g)}
+      <div><h3>${g.org}</h3><p>${g.meta}</p></div>
+    </div>
+    ${g.roles.map(r => roleHTML(r, g)).join('')}
+  </div>`).join('');
+
+/* reveal each entry as it scrolls in */
+const tlItems = [...document.querySelectorAll('#timeline .tl-item')];
+const tlIO = new IntersectionObserver(es => es.forEach(en => {
+  if (en.isIntersecting) { en.target.classList.add('in'); tlIO.unobserve(en.target); }
+}), { threshold: 0.15 });
+tlItems.forEach(el => tlIO.observe(el));
+
+/* the gradient line fills as you scroll; entries light up when it reaches them */
+const timeline = document.getElementById('timeline');
+function updateTimeline() {
+  const r = timeline.getBoundingClientRect();
+  const mark = window.innerHeight * 0.6;
+  timeline.style.setProperty('--fill', Math.max(0, Math.min(r.height - 36, mark - r.top - 18)) + 'px');
+  tlItems.forEach(el => {
+    const dot = el.querySelector('.tl-node, .org-logo');
+    el.classList.toggle('active', dot.getBoundingClientRect().top + 14 < mark);
+  });
+}
+let tlTick = false;
+window.addEventListener('scroll', () => {
+  if (!tlTick) { tlTick = true; requestAnimationFrame(() => { updateTimeline(); tlTick = false; }); }
+}, { passive: true });
+window.addEventListener('resize', updateTimeline);
+updateTimeline();
+
+/* soft spotlight that follows the cursor on each card */
+document.querySelectorAll('.tl-card').forEach(card => card.addEventListener('pointermove', e => {
+  const b = card.getBoundingClientRect();
+  card.style.setProperty('--mx', (e.clientX - b.left) + 'px');
+  card.style.setProperty('--my', (e.clientY - b.top) + 'px');
+}));
